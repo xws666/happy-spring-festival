@@ -1,0 +1,133 @@
+/* 字体 */
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "阿里妈妈东方大楷 Regular";
+  font-weight: 400;
+  src: url("//at.alicdn.com/wf/webfont/eUU7SM2fmfGw/Y5T16Wme2BBL.woff2") format("woff2"),
+    url("//at.alicdn.com/wf/webfont/eUU7SM2fmfGw/xKclanc78Lse.woff") format("woff");
+  font-display: swap;
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  /* 禁止滚动 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(135deg, #ff4a1d, #ff994c);
+}
+
+.header {
+  /* background-color: #00ff2a50; */
+  flex: 0 0 auto;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-img {
+  max-width: 60%;
+  height: auto;
+  display: block;
+  /* 确保图片不被水平压缩 */
+}
+
+.top-img-2025 {
+  max-width: 30%;
+  height: auto;
+  display: block;
+}
+
+.count-content {
+  font-size: 24px;
+  /* background-color: #ffffff52; */
+  padding: 20px;
+  text-align: center;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count-down{
+  background-color: #ff2a00;
+  padding: 20px;
+  width: 90vw;
+  border: 5px solid #ffa8a8;
+  border-radius: 10px;
+}
+
+.pre-time-text {
+  font-size: 36px;
+  font-family: "阿里妈妈东方大楷 Regular", sans-serif;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.day {
+  font-size: 24px;
+  font-family: "阿里妈妈东方大楷 Regular", sans-serif;
+  color: #ffffff;
+}
+
+.hour {
+  font-size: 26px;
+  font-family: "阿里妈妈东方大楷 Regular", sans-serif;
+  color: #ffffff;
+}
+
+.minute {
+  font-size: 28px;
+  font-family: "阿里妈妈东方大楷 Regular", sans-serif;
+  color: #ffffff;
+}
+
+.second {
+  font-size: 30px;
+  font-family: "阿里妈妈东方大楷 Regular", sans-serif;
+  color: #ffffff;
+}
+
+.footer {
+  flex: 0 0 auto;
+  background-color: #ffff0056;
+  height: 20vh;
+}
+
+.bottom-img {
+  width: 100%;
+}
+
+/* 针对小屏幕设备的样式 */
+@media (max-width: 768px) {
+  .count-content {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .count-content span {
+    margin: 0 3px;
+    /* 调整间距 */
+  }
+}
+
+/* 针对更小屏幕设备的样式 */
+@media (max-width: 480px) {
+  .count-content {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .count-content span {
+    margin: 0 2px;
+    /* 调整间距 */
+  }
+}

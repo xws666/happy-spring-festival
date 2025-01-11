@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>倒计时</title>
+  <link rel="stylesheet" href="./css/eliminate.css">
+  <link rel="stylesheet" href="./css/count-down-css.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="./assets/images/count-down-top.png" class="top-img" alt="蛇年大吉">
+      <img src="./assets/images/count-down-top-2025.png" class="top-img-2025" alt="2025蛇年大吉">
+    </div>
+    <div class="count-content">
+      <div class="count-down">
+        <div class="pre-time-text">距离春节还有</div>
+        <span class="day"><span id="days"></span>天</span>
+        <span class="hour"><span id="hours"></span>时</span>
+        <span class="minute"><span id="minutes"></span>分</span>
+        <span class="second"><span id="seconds"></span>秒</span>
+      </div>
+
+    </div>
+    <div class="footer">
+      <img src="./assets/images/count-down-bottom.png" class="bottom-img" alt="底部">
+    </div>
+  </div>
+
+  <script>
+    // 设置目标时间
+    const targetTime = new Date(2025, 0, 29, 0, 0, 0).getTime(); // 月份从0开始
+
+    // 更新倒计时
+    function updateCountdown() {
+      const currentTime = new Date().getTime();
+      const timeDifference = targetTime - currentTime;
+
+      if (timeDifference <= 0) {
+        clearInterval(interval); // 清除定时器，避免重复输出
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        // console.log("春节到了！");
+        window.location.href = "./new-year.html";
+      } else {
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+
+        // 隐藏或显示天这一项
+        const daysElement = document.querySelector('.day');
+        if (days === 0) {
+          daysElement.style.display = 'none';
+        } else {
+          daysElement.style.display = 'inline';
+        }
+      }
+    }
+
+    // 每秒更新一次倒计时
+    const interval = setInterval(updateCountdown, 1000);
+
+    // 初始化倒计时
+    updateCountdown();
+  </script>
+</body>
+
+</html>
